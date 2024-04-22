@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="UTF_8">
+
+<head>
+    <meta charset="UTF_8">
+    <title>楚漆相关活动</title>
+</head>
+
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    .a_shell {
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+        overflow: hidden;
+    }
+
+    .a_page {
+        transform: translateX(-110%);
+        position: absolute;
+        width: 50%;
+        height: 100%;
+        transition: .5s;
+    }
+
+    .a_button {
+        display: block;
+        width: 10%;
+        font-size: 30px;
+        color: #fff;
+        border-bottom: #ffffff solid 4px;
+        text-align: center;
+        position: absolute;
+        bottom: 10px;
+        margin: 50px;
+        left: calc(50% + (var(--i)*17%));
+        z-index: 999;
+        transition: .3s;
+    }
+
+    .page_content {
+        box-sizing: border-box;
+        height: 100%;
+        padding: 50px;
+        color: #fff;
+        position: absolute;
+        left: 100%;
+        display: none;
+        animation-name: fade;
+        animation-duration: .7s;
+        animation-iteration-count: 1;
+        opacity: 1;
+    }
+
+    @keyframes fade {
+        0% {
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 0;
+            transform: translateY(-50px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0px);
+        }
+    }
+
+    input {
+        display: none;
+    }
+
+    input:checked+.a_page {
+        transform: translateX(0px);
+        transition: .4s;
+    }
+
+    input:checked+.a_page .page_content {
+        width: 100%;
+        display: block;
+    }
+
+    .a_page:nth-child(3) {
+        background-image: url(https://s2.loli.net/2024/04/06/Kb4xlIrRNEBvw3G.jpg);
+    }
+
+    .a_page:nth-child(3) .page_content {
+        background-color: rgb(235, 165, 165);
+    }
+
+    .a_page:nth-child(6) {
+        background-image: url(https://s2.loli.net/2024/04/06/3JmwhFozA9YDPji.jpg);
+    }
+
+    .a_page:nth-child(6) .page_content {
+        background-color: rgb(86, 219, 243);
+    }
+
+    .a_page:nth-child(9) {
+        background-image: url(https://s2.loli.net/2024/04/06/lRFK2JPdfSqEDQv.jpg);
+    }
+
+    .a_page:nth-child(9) .page_content {
+        background-color: rgb(236, 180, 110);
+    }
+
+    .a_page h1 {
+        font-size: 60px;
+    }
+
+    .a_page a {
+        text-decoration: none;
+        color: #fff;
+    }
+
+    .a_page a:hover {
+        color: rgb(171, 255, 165);
+    }
+
+    .a_page p {
+        font-size: 30px;
+        padding: 10px;
+        background-color: rgb(0, 0, 0, .3);
+        margin: 30px 0;
+    }
+
+    .a_page span {
+        font-size: 26px;
+        letter-spacing: 2px;
+        color: rgb(56, 56, 56);
+    }
+
+    label:hover {
+        cursor: pointer;
+        border-bottom: solid 4px rgb(35, 35, 35);
+    }
+</style>
+
+<body>
+    <div class="a_shell">
+        <label for="button1" class="a_button" style="--i:0">展览活动</label>
+        <input type="radio" id="button1" name="a_page" checked>
+        <div class="a_page">
+            <div class="page_content">
+                <h1><a href="activity_1.1.html">开展展览</a></h1>
+                <p>展示各种楚漆作品</p>
+                <span>
+                    展览中包含了各种与楚漆相关的作品，既有仿出土楚文物制作的虎座鸟架鼓、漆木十弦琴、奁盒等，也有融入楚漆艺元素的艺术品，以及茶具、笔架、镇尺等文创产品。这些精美的造型、繁复的纹饰、浓郁的楚文化风格，深深吸引了来自各地的人民。
+                </span>
+            </div>
+        </div>
+        <label for="button2" class="a_button" style="--i:1">传播活动</label>
+        <input type="radio" id="button2" name="a_page">
+        <div class="a_page">
+            <div class="page_content">
+                <h1><a href="activity_2.html">“萌芽计划”</a></h1>
+                <p>向中国各地传播湖北楚漆文化</p>
+                <span>
+                    2023年8月1日至10日，湖北应城“萌芽计划”洪氏彰髹非遗研习班开班，来自北京、重庆、内蒙古、湖北、台湾等地的29名传统漆艺爱好者相聚在应城市楚珍园，开展了为期十天的实地研习。
+                </span>
+            </div>
+        </div>
+        <label for="button3" class="a_button" style="--i:2">民间活动</label>
+        <input type="radio" id="button3" name="a_page">
+        <div class="a_page">
+            <div class="page_content">
+                <h1><a href="activity_3.html">在大学开展相关活动</a></h1>
+                <p>让各大学院的学生了解楚漆文化</p>
+                <span>
+                    在大学里举办中国传统手工艺美育活动，让师生们在欣赏中国传统手工艺精彩纷呈的作品过程中，更加了解湖北楚漆技艺，培养认识美、体验美、感受美、欣赏美和创造美的能力。
+                </span>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html class="root-scroll" lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style>
+            body{
+                background-color: rgb(71, 71, 70);
+            }
+            h1{
+                font-size: 4rem;
+            }
+            .topic{
+                font-size: 2rem;
+                color:#630505;
+            }
+            .info{
+                font-size: 1.5rem;
+                width: 80%;
+                margin: 0 auto;
+                text-align: center;
+            }
+            .content{
+                background-color:#f0e9c3;
+                width: 80%;
+                height: 100%;
+                margin: 0 auto;
+                text-align: center;
+            }
+            .banner {
+                width: 600px;
+                height: 500px;
+                margin: 100px auto;
+                text-align: center;
+            }
+     
+            button {
+                border: 1px solid transparent;
+                margin: 0 10px;
+            }
+     
+            button:hover {
+                cursor: pointer;
+                background-color: #f40;
+                color: #fff;
+                border-color: #ccc;
+     
+            }
+     
+            .banner img {
+                width: 100%;
+                height: 100%;
+                /* object-fit: cover; */
+                max-width: 100%;
+                min-height: 100%;
+                border: 1px solid;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="content">
+            <p>&nbsp</p>
+            <div>
+                <div class="banner">
+                <img id="img" src="./image/2.1.jpg" alt="">
+                <p>
+                    <button id="btnPrev"><</button>
+                    <button id="btnNext">></button>
+                </p>
+            </div>
+            <div class="">
+                <h1>彩绘鸳鸯形漆盒</h1>
+                <p>
+                    <p class="topic">出土时间</p><p class="info">1978年</p>
+                    <p class="topic">馆藏地点</p><p class="info">湖北省博物馆</p>
+                    <p class="topic">出土地</p><p class="info">湖北随州市曾侯乙墓</p>
+                    <p class="topic">详细介绍</p><p class="info">战国彩绘乐舞图鸳鸯形漆盒是战国时期的漆器，于1978年在湖北随州市曾侯乙墓出土，收藏于湖北省博物馆。
+                        战国彩绘乐舞图鸳鸯形漆盒盒长20.1厘米，宽12.5厘米，高16.5厘米，呈鸳鸯形，由两半胶和而成，颈部有圆形桦卯结合，插入器身，头部可自由转动；背
+                        部开长方口，内部挖空；漆物通体髹黑漆，上施彩绘；腹部两侧绘有漆画：左侧绘撞钟、击磐场面；右侧绘击鼓、舞蹈场面。2013年8月19日，中华人民共和
+                        国国家文物局将战国彩绘乐舞图鸳鸯形漆盒列入《第三批禁止出国（境）展览文物》。</p>
+                </p>
+            </div>
+        </div>
+        <p>&nbsp</p>
+        </div>
+        <script>
+            // 1.定义一个数组用来存放图片的地址
+            var arr = ["./image/2.1.jpg", "./image/2.2.jpg","./image/2.3.jpg"];
+            // 2.获取一下元素对象
+            var btns = document.querySelectorAll('button');
+            var img = document.querySelectorAll('img')[0];
+        
+            // 定义一个全局变量
+            var num = 0;
+            // 3.绑定事件、
+            //下一张
+            btns[1].onclick = function(){
+                console.log(btns[1]);
+                num++;
+                // 这个地方需要注意，当我们图片对应的下标加到最大时候，我们需要将下标设置回第一张
+                if(num  > 2){
+                    num = 0;
+                }
+                //img对象调用它的src属性，实现改变图片的路径
+                img.src = arr[num];
+                console.log(img.src);
+            }
+            // 上一张
+            btns[0].onclick = function(){
+                console.log(btns[0]);
+                num--;
+                if(num  < 0){
+                    num = 2;
+                }
+                img.src = arr[num];
+                console.log(img.src);
+     
+            }
+        </script>
+    </body>
+</html>

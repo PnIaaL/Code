@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>楚漆文化-传承-介绍</title>
+  <!-- <link rel="stylesheet" href="./css/style.css"> -->
+  <!-- <link rel="stylesheet" href="./css/chuancheng.css" /> -->
+  <style>
+    body {
+      background-color: #565454;
+      /* 使用十六进制颜色代码 */
+    }
+
+    .custom-text {
+      font-family: 'Courier New', Courier, monospace;
+      ;
+      font-size: 45px;
+    }
+
+    .mainnav {
+      width: 100%;
+      height: 50px;
+      background-color: #050505;
+      position: relative;
+    }
+
+    .mainnav h1 {
+      float: left;
+      margin: 0 30px;
+      color: #fff;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .mainnav ul {
+      display: flex;
+      /* 使用Flexbox布局导航项 */
+      justify-content: space-between;
+      /* 子项之间均匀分布 */
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      /* 确保ul的高度与.mainnav一致 */
+    }
+
+    .mainnav ul li {
+      flex: 1;
+      margin-left: 15px;
+      height: 50px;
+      list-style: none;
+      line-height: 50px;
+      font-size: 20px;
+      float: left;
+      position: relative;
+    }
+
+    .mainnav ul li a {
+      display: block;
+      padding: 0 30px;
+      color: rgb(252, 250, 250);
+    }
+
+    .mainnav ul li .childnav {
+      display: none;
+      /* 默认隐藏小标题 */
+      position: absolute;
+      top: 100%;
+      /* 小标题显示在导航项下方 */
+      width: 100%;
+      /* 覆盖整个导航栏的宽度 */
+      background-color: #535353;
+      /* 背景色与导航栏一致 */
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      /* 阴影效果 */
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      justify-content: space-between;
+      /* 子项之间均匀分布 */
+      z-index: 999;
+    }
+
+    .mainnav ul li:hover .childnav {
+      display: flex;
+      /* 鼠标悬停时显示小标题 */
+    }
+
+    .mainnav ul li .childnav li {
+      font-size: 15px;
+      float: none;
+      margin: 0;
+      height: auto;
+      width: auto;
+      line-height: normal;
+      flex: 1;
+      /* 使每个子项占据等量的空间 */
+      text-align: center;
+      /* 文本居中显示 */
+    }
+
+    .mainnav ul li .childnav li a {
+      display: block;
+      /* 保持链接为内联块级元素 */
+      padding: 10px;
+      /* 设置链接的内边距 */
+      color: rgb(252, 250, 250);
+      /* 链接颜色 */
+    }
+
+    .mainnav ul li .childnav li a:hover {
+      color: seagreen;
+      /* 鼠标悬停时链接变色 */
+    }
+
+    .chancheng_banner {
+      width: 90%;
+      height: 400px;
+      margin: 15px auto;
+      overflow: hidden;
+    }
+
+    .chancheng_banner img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* object-fit: contain; */
+    }
+
+    /* 传承人 */
+    .ccren {
+      display: flex;
+      flex-wrap: wrap;
+      width: 90%;
+      height: 1350px;
+      margin: 0px auto;
+      margin-bottom: 30px;
+      background-color: rgb(243, 243, 243);
+      justify-content: space-around;
+      align-content: flex-start;
+    }
+
+    .title_ccr {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* .title_ccr img {
+    align-self: center; 让图片在交叉轴上垂直居中
+} */
+
+    .tit_ccr {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: rgb(229, 187, 125);
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 40px;
+      margin-top: 8px;
+    }
+
+    .ccrp {
+      padding: 0 20px;
+      /* 上下内边距为 0，左右内边距为 20px */
+      text-indent: 2em;
+    }
+
+    .ccren .tj {
+      width: 30%;
+      height: 500px;
+      background-color: antiquewhite;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.5s, transform 0.5s;
+      transition: opacity 1s, transform 1s;
+      /* 将transition时间延长为1秒 */
+    }
+
+    .tj.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .ccren .tj .ccrimg {
+      /* 相对定位 */
+      position: relative;
+      width: 100%;
+      height: 88%;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+
+    .ccren .tj .ccrimg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      margin: 0 auto;
+    }
+
+    .ccren .tj .ccrimg:hover {
+      cursor: pointer;
+    }
+
+    .ccren .tj .ccrimg:hover .mask {
+      top: 0;
+      /* 触发移动的初始位置 */
+    }
+
+    .ccren .tj .ccrimg .mask {
+      /* 绝对定位 */
+      position: absolute;
+      top: 100%;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      background: #464646e8;
+      color: #fff;
+      top: -100%;
+      /* 鼠标悬停时，向上弹出 */
+      transition: top 0.7s;
+      /* 延长过渡时间，使动画更流畅 */
+      /* 添加过渡 */
+      transition: all .7s ease-out;
+      transition: opacity 1s, transform 1s;
+      /* 将transition时间延长为1秒 */
+    }
+
+    .mask h1 {
+      line-height: 50px;
+    }
+
+    .mask p {
+      margin: 20px;
+      font-weight: 500;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 4;
+      word-wrap: break-word;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+    }
+
+    .ccren .tj h3 {
+      width: 100%;
+      line-height: 45px;
+      text-align: center;
+    }
+
+    .mylist {
+      /* background-color: orange; */
+      width: 400px;
+      list-style: none;
+      /* 去掉li前面的点 */
+      padding: 0;
+      /* 去掉前面的间隙 */
+
+      margin: 0;
+      /* 去除默认的外边距 */
+      text-align: left;
+      /* 靠左对齐 */
+    }
+
+    .mytitle {
+      width: 700px;
+      height: 40px;
+      border-bottom: 2px solid red;
+      line-height: 40px;
+      font-size: 14pt;
+      font-weight: bold;
+      text-align: left;
+      /* 靠左对齐 */
+    }
+
+    .ccnew {
+      width: 700px;
+      border: 1px solid rgb(126, 124, 124);
+      /* 边框实线更细 */
+      border-width: 2px;
+      /* 边框更大 */
+      border-radius: 10px;
+      padding: 10px;
+      margin: 0;
+      /* 将margin改为0 */
+
+
+    }
+
+    a {
+      text-decoration: none;
+      /* 去掉超链接的下划线 */
+      color: black;
+    }
+
+    a:hover {
+      color: rgb(173, 172, 170);
+    }
+
+    .mylist li {
+      height: 30px;
+      width: 700px;
+      margin: 20px;
+      font-weight: 500;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 4;
+      word-wrap: break-word;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+
+    }
+
+    .mylist span {
+      font-weight: bold;
+    }
+  </style>
+
+</head>
+
+<body>
+  <script type="text/javascript">
+    var images = new Array()
+    function preload() {
+      for (i = 0; i < preload.arguments.length; i++) {
+        images[i] = new Image()
+        images[i].src = preload.arguments[i]
+      }
+    }
+    preload(
+      "https://s2.loli.net/2024/04/10/qjEQl64VMvuL3fC.png",
+      "https://s2.loli.net/2024/04/10/OnTuvFNsEmxYCB6.png",
+      "https://s2.loli.net/2024/04/10/P46D2qC8EgKRH1t.jpg",
+      "https://s2.loli.net/2024/04/10/HbEwIjFkcYU4Cg6.png",
+      "https://s2.loli.net/2024/04/10/ycezLJqlZ8jnBwR.jpg",
+      "https://s2.loli.net/2024/04/10/tHBmWrvpeuwlX37.jpg",
+      "https://s2.loli.net/2024/04/10/UoOsPapdZ9ehL17.webp",
+      "https://s2.loli.net/2024/04/10/wVeUiMBIhNCvy4D.jpg",
+      "https://s2.loli.net/2024/04/10/eJsQd5prnu4LjMA.webp"
+    )  
+  </script>
+
+  <div class="chancheng_banner">
+    <!-- <img src="img/9.jpg" alt="" /> -->
+    <img src="https://s2.loli.net/2024/04/10/ycezLJqlZ8jnBwR.jpg"></a>
+  </div>
+  <div class="ccren">
+    <div class="title_ccr">
+      <!-- <img src="img/23.jpg" /> -->
+      <img src="https://s2.loli.net/2024/04/10/tHBmWrvpeuwlX37.jpg"></a>
+      <p class="tit_ccr">楚漆传承人</p>
+    </div>
+    <div class="ccrp">
+      <p>
+        荆楚大地上，有一大批非遗传承人、工艺美术大师、民间文艺家等，数十年如一日地传承发展着优秀传统文化，尤其是其中具有重要文化价值和传承意义的“绝学”、冷门学科，楚式漆器就是其中的一种。
+      </p>
+      <p>
+        当楚式漆器髹饰技艺频繁亮相全国的各种展览,而他的传承人邹德香,却始终保持着匠人之心,安静安定地偏居一隅,专注于手中的锉刀,一刀一刀雕刻着岁月沧桑。
+      </p>
+      <p>
+        怀揣着32年的热爱与坚守，邹传志将情感注入到漆艺事业中。问及下一步规划，邹传志表示，要继续加强楚式漆器创新，让漆器古为今用，吸引更多人关注和传承。“希望有朝一日，楚式漆器能重归昔日的繁荣，愿我们祖辈创造的灿烂文化能在这片荆楚大地上薪火相传!”
+      </p>
+      <p>
+        漆器不仅能观赏，还有实用价值，不应该只待在博物馆，放在玻璃柜里，应该成为市场上大众喜爱的商品，这样才能让文物真正‘活’过来，并传承下去。”祝成超说。
+      </p>
+    </div>
+
+    <div class="tj">
+      <div class="ccrimg">
+        <img src="https://s2.loli.net/2024/04/10/UoOsPapdZ9ehL17.webp" alt="邹德香" />
+        <a href="http://www.wodsy.com/person/f9a7ad6285d54677972ee2edb1736fd0.html" target="_blank">
+          <div class="mask" title="点击了解更多">
+            <h1>邹德香</h1>
+            <p style="text-indent: 2em">
+              “楚式漆器髹饰技艺”国家级非遗代表性传承人
+            </p>
+          </div>
+        </a>
+      </div>
+      <h3>邹德香</h3>
+    </div>
+    <div class="tj">
+      <div class="ccrimg">
+        <img src="https://s2.loli.net/2024/04/10/wVeUiMBIhNCvy4D.jpg" alt="邹传志" />
+        <a href="https://news.hbtv.com.cn/p/1798220.html" target="_blank">
+          <div class="mask" title="点击了解更多">
+            <h1>邹传志</h1>
+            <p style="text-indent: 2em">
+              邹传志，1970年生，楚式漆器髹饰技艺第四代传承人，国家级“功勋式非遗大师”，省级非物质文化遗产传承人。
+            </p>
+          </div>
+        </a>
+      </div>
+      <h3>邹传志</h3>
+    </div>
+    <div class="tj">
+      <div class="ccrimg">
+        <img src="https://s2.loli.net/2024/04/10/eJsQd5prnu4LjMA.webp" alt="祝成超" />
+        <a href="https://mp.weixin.qq.com/s?__biz=MzI0MzAxNTMyMA==&mid=2657045911&idx=3&sn=65072796a4b4556ddfc7402811aa959b&chksm=f2d86660c5afef7617a32cb446462c32ad43c9ad5efc0fc1fd45c90394d97c197d69cf183329&scene=27"
+          target="_blank">
+          <div class="mask" title="点击了解更多">
+            <h1>祝成超</h1>
+            <p style="text-indent: 2em">
+              曾国漆器髹饰技艺传承人，先后荣获湖北省“荆楚工匠”、“湖北省非物质文化遗产传承人”、“湖北省民间工艺技能传承人”、“湖北省首席技师”、“随州五一劳动奖章”、“随州市劳动模范”、“随州市文化旅游产业发展突出贡献个人”等荣誉称号。
+            </p>
+          </div>
+        </a>
+      </div>
+      <h3>祝成超</h3>
+
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          let sections = document.querySelectorAll('.tj');
+          let index = 0;
+
+          function checkScroll() {
+            for (let section of sections) {
+              if (isElementInViewport(section) && !section.classList.contains('show')) {
+                setTimeout(() => {
+                  section.classList.add('show');
+                }, 100 * index);
+                index++;
+              }
+            }
+          }
+
+          function isElementInViewport(el) {
+            var rect = el.getBoundingClientRect();
+            return (
+              rect.top >= 0 &&
+              rect.left >= 0 &&
+              rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+              rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+          }
+
+          checkScroll(); // 在页面加载时立即执行，触发弹出效果
+
+          window.addEventListener('scroll', checkScroll);
+        });
+      </script>
+    </div>
+
+    <div class="ccnew">
+      <div class="new">
+        <div class="mytitle" style="text-indent: 1em;">
+          发展——传承
+        </div>
+        <ul class="mylist">
+          <li><a href="https://www.ihchina.cn/project_details/18754">立足文化深度，探索楚式漆艺多元振兴道路——湖北荆州传统工艺工作站 </a></li>
+          <li><a href="https://mp.weixin.qq.com/s/jcIlNjaFNZOoq8OBwK9QOg">高山流水-楚式漆器髹饰技艺暨漆艺创新作品展</a></li>
+          <li><a
+              href="https://mp.weixin.qq.com/s?__biz=MzAxODczODI1NA==&mid=2651094481&idx=3&sn=b5c2a867a32f1a73fd01dd9d4318d755&chksm=802160f0b756e9e67c548df19a4959919fe1ced37af402bba22ea06a68092785e971375830f5&scene=27">遗传承人研修培训计划课堂</a>
+          </li>
+          <li><a href="https://www.sohu.com/a/332922930_120212884">楚国漆器，800年荆楚文化的浪漫结晶 </a></li>
+          <li><a href="https://www.thepaper.cn/newsDetail_forward_18263552">从楚墓彩绘漆奁图，看古人“居有法则，动有文章”</a></li>
+          <li><a href="https://www.thepaper.cn/newsDetail_forward_18069441">人民日报点赞荆州楚式漆艺：漆韵苍古气象新</a></li>
+          <li><a href="https://baijiahao.baidu.com/s?id=1732593868217979072&wfr=spider&for=pc">楚式漆艺展现时代魅力：漆韵苍古气象新</a>
+          </li>
+          <li><a href="https://www.bilibili.com/video/BV19G4y1479t/">《湖北·有漆》纪录片｜千年以后，是消失，还是传承？</a></li>
+          <li><a
+              href="https://www.bilibili.com/video/BV1N4411U7a9/?spm_id_from=333.337.search-card.all.click">纪录片《一漆一会》——绝美楚漆，风雨楚匠。他可能是最“寒酸”的国家工艺美术大师。</a>
+          </li>
+
+
+        </ul>
+
+      </div>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="UTF_8">
+
+<head>
+    <meta charset="UTF_8">
+    <title>民间活动</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: "Microsoft yahei", serif;
+    }
+
+    li {
+        list-style-type: none;
+    }
+
+    .a3_body {
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background-image: linear-gradient(90deg, rgb(236, 203, 136), rgb(255, 153, 80));
+        background-size: 400%;
+        animation: myanimation 10s infinite;
+    }
+
+    @keyframes myanimation {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    #a3_civil1 {
+        background-color: #ffffff;
+        width: 1080px;
+        height: 600px;
+        margin: 60px auto;
+
+    }
+
+    #a3_civil2 {
+        background-color: #ffffff;
+        width: 1080px;
+        height: 600px;
+        margin: 60px auto;
+
+    }
+
+    #a3_civil3 {
+        background-color: #ffffff;
+        width: 1080px;
+        height: 600px;
+        margin: 60px auto;
+
+    }
+
+    #a3_civil1 .e3_title {
+        background-color: #ffb6e9;
+        padding-top: 1rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    #a3_civil2 .e3_title {
+        background-color: #ffb6e9;
+        padding-top: 1rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    #a3_civil3 .e3_title {
+        background-color: #ffb6e9;
+        padding-top: 1rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    #text1 {
+        margin-top: 20px;
+        margin-left: 100px;
+        width: 80%;
+        height: 100%;
+    }
+
+    #text3 {
+        margin-top: 20px;
+        margin-left: 100px;
+        margin-right: 20px;
+        height: 100%;
+    }
+
+    #text2 {
+        margin-top: 20px;
+        margin-left: 100px;
+        margin-right: 20px;
+        height: 100%;
+    }
+
+    #text2 p {
+
+        margin-top: 1em;
+        margin-bottom: 1em;
+        font-size: 18px;
+        text-indent: 2em;
+        text-align: justify;
+    }
+
+    #text1 p {
+
+        margin-top: 8em;
+        margin-bottom: 1em;
+        line-height: 2;
+        font-size: 20px;
+        text-indent: 2em;
+        text-align: justify;
+    }
+
+    #text3 p {
+
+        margin-top: 8em;
+        margin-bottom: 1em;
+        line-height: 2;
+        font-size: 20px;
+        text-indent: 2em;
+        text-align: justify;
+    }
+
+    #box {
+        position: relative;
+        padding-left: 50px;
+        padding-right: 20px;
+        float: left;
+        width: 500px;
+        height: 500px;
+        margin-top: 20px;
+    }
+
+    #box .img1 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 500px;
+        height: 500px;
+    }
+
+    #box .img1 li {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    #box .img1 li.active1 {
+        display: block;
+    }
+
+    #box .img1 li img {
+        padding-left: 50px;
+        width: 500px;
+        height: 500px;
+        display: block;
+    }
+
+    #box .btn1 {
+        position: absolute;
+        bottom: 0;
+        left: 2;
+    }
+
+    #box .btn1 ul li {
+        width: 24px;
+        height: 24px;
+        margin-bottom: 10px;
+        line-height: 24px;
+        color: #fff;
+        font-weight: bold;
+        font-size: 12px;
+        text-align: center;
+        background: #ffaf5a;
+        cursor: pointer;
+    }
+
+    #box .btn1 ul li.active1 {
+        background: #f60;
+    }
+
+    #box .img2 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 500px;
+        height: 500px;
+    }
+
+    #box .img2 li {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    #box .img2 li.active2 {
+        display: block;
+    }
+
+    #box .img2 li img {
+        padding-left: 50px;
+        width: 500px;
+        height: 500px;
+        display: block;
+    }
+
+    #box .btn2 {
+        position: absolute;
+        bottom: 0;
+        left: 3;
+    }
+
+    #box .btn2 ul li {
+        width: 24px;
+        height: 24px;
+        margin-bottom: 10px;
+        line-height: 24px;
+        color: #fff;
+        font-weight: bold;
+        font-size: 12px;
+        text-align: center;
+        background: #ffaf5a;
+        cursor: pointer;
+    }
+
+    #box .btn2 ul li.active2 {
+        background: #f60;
+    }
+
+    #box .img3 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 500px;
+        height: 500px;
+    }
+
+    #box .img3 li {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    #box .img3 li.active3 {
+        display: block;
+    }
+
+    #box .img3 li img {
+        padding-left: 50px;
+        width: 500px;
+        height: 500px;
+        display: block;
+    }
+
+    #box .btn3 {
+        position: absolute;
+        bottom: 0;
+        left: 2;
+    }
+
+    #box .btn3 ul li {
+        width: 24px;
+        height: 24px;
+        margin-bottom: 10px;
+        line-height: 24px;
+        color: #fff;
+        font-weight: bold;
+        font-size: 12px;
+        text-align: center;
+        background: #ffaf5a;
+        cursor: pointer;
+    }
+
+    #box .btn3 ul li.active3 {
+        background: #f60;
+    }
+</style>
+
+</style>
+
+<body class="a3_body">
+    <div id="a3_civil2">
+        <div class="e3_title">
+            <h1>大学生参观央美漆器展</h1>
+        </div>
+        <div id="box">
+            <div class="img2">
+                <ul>
+                    <li class="active2"><img src="https://s2.loli.net/2024/04/11/Wgrf6EwtD8i3Pqu.jpg" /></li>
+                    <li><img src="https://s2.loli.net/2024/04/11/z8kcR6XbhqwMgVW.jpg" /></li>
+                    <li><img src="https://s2.loli.net/2024/04/11/lOpceavYtn2BPmJ.jpg" /></li>
+                </ul>
+            </div>
+            <div class="btn2">
+                <ul>
+                    <li class="active2">1</li>
+                    <li>2</li>
+                    <li>3</li>
+                </ul>
+            </div>
+        </div>
+        <div id="text2">
+            <p>
+                <b>某学生</b>说到：面对工业化、信息化、全球化的大背景，面对社会经济的发展对艺术设计和创意灵感的需求，面对被信息技术革命不断地挑战着的审美体系、被不断推动着延展的艺术与设计边界，作为未来的艺术设计师，我们应当何去何从？
+                通过两年对中国古代漆器的全面研究和分析，我找到了自己的答案。
+            </p>
+            <p>正如鲁晓波教授曾经说过的，我们要以开放的胸怀拥抱世界的一切美好，洞悉其本质，用不屈的意志去把握世界的脉搏，跟上世界的节奏。
+                作为艺术家和设计师，我们有责任促进多样性，支持进步，提升所有人的福祉，维护社会和谐。
+            </p>
+            <p> 即使我们身处在这个瞬息万变的时代，也要留住“可巧手以继拙作，不可庸工以当精制”的价值判断和“十日画一水，五日画一石”的艺术坚守，保持我们的生命力以及艺术完整性和纪律性。
+                这次的展览，让我有幸掀开岁月沉寂的一角，得见千年古国流传下的精益匠心。奢于东方，以意趣超然万物之外，凭巧技傲立风范之中。我相信，作为未来的艺术家和设计师，我们都能将这份宝贵的经验和精神融入到未来的学习和创作中，传承文脉薪火，再添人间华饰，希望在未来的研究生生涯中能够继续就这一命题进行深入探讨。
+            </p>
+
+        </div>
+    </div>
+    <div id="a3_civil3">
+        <div class="e3_title">
+            <h1>西湖边的国美集市</h1>
+        </div>
+        <div id="box">
+            <div class="img3">
+                <ul>
+                    <li class="active3"><img src="https://s2.loli.net/2024/04/11/LVw5bKZh4f8W2ty.jpg" /></li>
+                    <li><img src="https://s2.loli.net/2024/04/11/l6zD5KWxXLjTiyd.jpg" /></li>
+                    <li><img src="https://s2.loli.net/2024/04/11/TGjxWY2uv4gI8Cb.jpg" /></li>
+                    <li><img src="https://s2.loli.net/2024/04/11/P8ApieuBCd7XW9Q.jpg" /></li>
+                    <li><img src="https://s2.loli.net/2024/04/11/lSODBcx9HiZz15A.jpg" /></li>
+
+                </ul>
+            </div>
+            <div class="btn3">
+                <ul>
+                    <li class="active3">1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                </ul>
+            </div>
+        </div>
+        <div id="text3">
+            <p>
+                来自中国美术学院的漆艺研究生，在一年一度的南山艺市里首次亮相🙌在集市上可以看到原创手作漆器，小到戒指💍、耳环、项链，大至杯碗碟等日用食器、茶具、香器，所有皆是取之自然，用之自然，将大漆工艺融入当代生活。
+            </p>
+
+        </div>
+    </div>
+    <div id="a3_civil1">
+        <div class="e3_title">
+            <h1>2019级学生漆艺毕业设计</h1>
+        </div>
+        <div id="box">
+            <div class="img1">
+                <ul>
+                    <li class="active1"><img src="https://s2.loli.net/2024/04/06/lRFK2JPdfSqEDQv.jpg" /></li>
+                    <li><img src="https://s2.loli.net/2024/04/11/bGY4WEBwPXqg9m6.jpg" /></li>
+                    <li><img src="https://s2.loli.net/2024/04/11/ZVxJAPgscBErImv.jpg" /></li>
+                    <li><img src="https://s2.loli.net/2024/04/11/7KUzZQG4ABrmJNt.jpg" /></li>
+                    <li><img src="https://s2.loli.net/2024/04/11/1yxmsEINUchY4Xv.jpg" /></li>
+                </ul>
+            </div>
+            <div class="btn1">
+                <ul>
+                    <li class="active1">1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                </ul>
+            </div>
+        </div>
+        <div id="text1">
+            <p>
+                中国的漆器历史源远流长，传承至今，从业者在前人的基础上，不断融入新材料、新技术、新风格，使得漆器作品能够与时俱进，体现出当代审美风貌。
+                大学生使用现代材料模仿制作漆器。
+            </p>
+
+        </div>
+    </div>
+    <script>
+
+        var aBtn1 = document.getElementsByClassName("btn1")[0].getElementsByTagName("li"),
+            aImg1 = document.getElementsByClassName("img1")[0].getElementsByTagName("li"),
+            length1 = aBtn1.length,
+            index1 = 0;//这个变量用来存储当前显示的序号
+
+        for (var i = 0; i < length1; i++) {
+            aBtn1[i].goudan = i;//自定义属性，用来存每个人的序号
+            aBtn1[i].onclick = function () {
+                if (this.goudan !== index1) {
+                    aBtn1[index1].className = "";//把前一个的名字去掉
+                    aImg1[index1].className = "";//把前一图片的名字去掉
+
+                    index1 = this.goudan;//把序号变成当前点击的这个的序号
+
+                    aBtn1[index1].className = "active1";//给点击的这个加名字
+                    aImg1[index1].className = "active1";//给当前要显示的图片加名字
+
+                }
+            };
+        }
+        var aBtn2 = document.getElementsByClassName("btn2")[0].getElementsByTagName("li"),
+            aImg2 = document.getElementsByClassName("img2")[0].getElementsByTagName("li"),
+            length2 = aBtn2.length,
+            index2 = 0;//这个变量用来存储当前显示的序号
+
+        for (var i = 0; i < length2; i++) {
+            aBtn2[i].goudan = i;//自定义属性，用来存每个人的序号
+            aBtn2[i].onclick = function () {
+                if (this.goudan !== index2) {
+                    aBtn2[index2].className = "";//把前一个的名字去掉
+                    aImg2[index2].className = "";//把前一图片的名字去掉
+
+                    index2 = this.goudan;//把序号变成当前点击的这个的序号
+
+                    aBtn2[index2].className = "active2";//给点击的这个加名字
+                    aImg2[index2].className = "active2";//给当前要显示的图片加名字
+
+                }
+            };
+        }
+        var aBtn3 = document.getElementsByClassName("btn3")[0].getElementsByTagName("li"),
+            aImg3 = document.getElementsByClassName("img3")[0].getElementsByTagName("li"),
+            length3 = aBtn3.length,
+            index3 = 0;//这个变量用来存储当前显示的序号
+
+        for (var i = 0; i < length3; i++) {
+            aBtn3[i].goudan = i;//自定义属性，用来存每个人的序号
+            aBtn3[i].onclick = function () {
+                if (this.goudan !== index3) {
+                    aBtn3[index3].className = "";//把前一个的名字去掉
+                    aImg3[index3].className = "";//把前一图片的名字去掉
+
+                    index3 = this.goudan;//把序号变成当前点击的这个的序号
+
+                    aBtn3[index3].className = "active3";//给点击的这个加名字
+                    aImg3[index3].className = "active3";//给当前要显示的图片加名字
+
+                }
+            };
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>楚漆文化-传承-介绍</title>
+    <!-- <link rel="stylesheet" href="./css/style.css"> -->
+    <!-- <link rel="stylesheet" href="./css/chuancheng.css"> -->
+    
+    <style>
+body {
+    background-color: #565454; /* 使用十六进制颜色代码 */
+}
+.custom-text {
+    font-family: 'Courier New', Courier, monospace;
+    ;
+    font-size: 45px;
+}
+
+.mainnav {
+    width: 100%;
+    height: 50px;
+    background-color: #050505;
+    position: relative;
+}
+
+.mainnav h1 {
+    float: left;
+    margin: 0 30px;
+    color: #fff;
+}
+
+a {
+    text-decoration: none;
+}
+
+.mainnav ul {
+    display: flex;
+    /* 使用Flexbox布局导航项 */
+    justify-content: space-between;
+    /* 子项之间均匀分布 */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    /* 确保ul的高度与.mainnav一致 */
+}
+
+.mainnav ul li {
+    flex: 1;
+    margin-left: 15px;
+    height: 50px;
+    list-style: none;
+    line-height: 50px;
+    font-size: 20px;
+    float: left;
+    position: relative;
+}
+
+.mainnav ul li a {
+    display: block;
+    padding: 0 30px;
+    color: rgb(252, 250, 250);
+}
+
+.mainnav ul li .childnav {
+    display: none;
+    /* 默认隐藏小标题 */
+    position: absolute;
+    top: 100%;
+    /* 小标题显示在导航项下方 */
+    width: 100%;
+    /* 覆盖整个导航栏的宽度 */
+    background-color: #535353;
+    /* 背景色与导航栏一致 */
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    /* 阴影效果 */
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    justify-content: space-between;
+    /* 子项之间均匀分布 */
+    z-index: 999;
+}
+
+.mainnav ul li:hover .childnav {
+    display: flex;
+    /* 鼠标悬停时显示小标题 */
+}
+
+.mainnav ul li .childnav li {
+    font-size: 15px;
+    float: none;
+    margin: 0;
+    height: auto;
+    width: auto;
+    line-height: normal;
+    flex: 1;
+    /* 使每个子项占据等量的空间 */
+    text-align: center;
+    /* 文本居中显示 */
+}
+
+.mainnav ul li .childnav li a {
+    display: block;
+    /* 保持链接为内联块级元素 */
+    padding: 10px;
+    /* 设置链接的内边距 */
+    color: rgb(252, 250, 250);
+    /* 链接颜色 */
+}
+
+.mainnav ul li .childnav li a:hover {
+    color: seagreen;
+    /* 鼠标悬停时链接变色 */
+}
+
+.chancheng_banner{
+    width: 90%;
+    height: 400px;
+    margin: 15px auto;
+    overflow: hidden;
+}
+.chancheng_banner img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+    /* object-fit: contain; */
+}
+.chuancheng_part1,
+.chuancheng_part3
+{
+    width: 90%;
+    height: 400px;
+    margin: 0px auto;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    background-color: beige;
+
+}
+.chuancheng_part2{
+    display: flex;
+    flex-direction: row-reverse; /* 反转水平方向的排列顺序 */
+    width: 90%;
+    height: 400px;
+    margin: 0px auto;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    background-color: beige;
+}
+.chuancheng .chuancheng_img1,
+.chuancheng .chuancheng_img2,
+.chuancheng .chuancheng_img3
+{
+    width: 40%;
+    height: 100%;
+    float: left;
+    margin-left: 10px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+.chuancheng_part1 img,
+.chuancheng_part2 img,
+.chuancheng_part3 img
+{
+    width: 90%;
+    height: 90%;
+    border-radius: 15px; 
+    object-fit:cover;
+    transition: transform 0.5s; /* 这里指定了放大过渡的时间为0.5秒，您可以根据需要调整 */
+  
+}
+.chuancheng_part1 img:hover,
+.chuancheng_part2 img:hover,
+.chuancheng_part3 img:hover{
+
+    transform: scale(1.05);
+    
+}
+.chuancheng .chuancheng_jieshao{
+    width: 56%;
+    float: right;
+    height: 100%;
+    padding: 0 20px;
+}
+.chuancheng .chuancheng_jieshao .wz{
+    overflow: auto;
+    height: 95%;
+    padding: 0 5px;
+}
+.chuancheng .chuancheng_jieshao h2{
+    line-height: 80px;
+}
+.chuancheng .chuancheng_jieshao .wz p{
+    /* 行间距 */
+    line-height: 30px;
+    font-size: 16px;
+    text-indent: 2em;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity 0.5s, transform 0.5s;
+    animation: slideFromRight 2s ease forwards;
+}
+@keyframes slideFromRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+
+    </style>
+
+</head>
+<body>
+    <!-- <div class="mainnav">
+        <h1><a class="custom-text">楚漆</a></h1>
+        <ul>
+            <li><a href="mainIntroduction.html">首页</a></li>
+            <img
+                src="https://res.cjyun.org/t/site/10695/8c561fd52320442491ddd4ad11bbd1cf/assets/hbsbwg2/icon_hzw.png">
+            <li><a href="/qqxs" target="_blank">漆器欣赏</a>
+                <ul class="childnav">
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                </ul>
+            </li>
+            <img
+                src="https://res.cjyun.org/t/site/10695/8c561fd52320442491ddd4ad11bbd1cf/assets/hbsbwg2/icon_hzw.png">
+            <li><a href="/qqzz" target="_blank">漆器制作</a>
+                <ul class="childnav">
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                </ul>
+            </li>
+            <img
+                src="https://res.cjyun.org/t/site/10695/8c561fd52320442491ddd4ad11bbd1cf/assets/hbsbwg2/icon_hzw.png">
+            <li><a href="/qqcc" target="_blank">相关文创</a>
+                <ul class="childnav">
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                </ul>
+            </li>
+            <img
+                src="https://res.cjyun.org/t/site/10695/8c561fd52320442491ddd4ad11bbd1cf/assets/hbsbwg2/icon_hzw.png">
+            <li><a href="activity.html" target="_blank">有关活动</a>
+                <ul class="childnav">
+                    <li><a href="activity_1.1.html">展览活动</a></li>
+                    <li><a href="#">传播活动</a></li>
+                    <li><a href="#">民间活动</a></li>
+                </ul>
+            </li>
+            <img
+                src="https://res.cjyun.org/t/site/10695/8c561fd52320442491ddd4ad11bbd1cf/assets/hbsbwg2/icon_hzw.png">
+            <li><a href="#" target="_blank">漆器传承</a>
+                <ul class="childnav">
+                    <li><a href="chuancheng_jieshao.html">溯源-功用</a></li>
+                    <li><a href="chuancheng_ccren.html">传承-发展</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div> -->
+    <script type="text/javascript">  
+        var images = new Array()  
+         function preload() {  
+             for (i = 0; i < preload.arguments.length; i++) {  
+                 images[i] = new Image()  
+                 images[i].src = preload.arguments[i]  
+             }  
+         }  
+         preload(  
+            "https://s2.loli.net/2024/04/10/qjEQl64VMvuL3fC.png",
+            "https://s2.loli.net/2024/04/10/OnTuvFNsEmxYCB6.png",
+            "https://s2.loli.net/2024/04/10/P46D2qC8EgKRH1t.jpg",
+            "https://s2.loli.net/2024/04/10/HbEwIjFkcYU4Cg6.png",
+            "https://s2.loli.net/2024/04/10/ycezLJqlZ8jnBwR.jpg",
+            "https://s2.loli.net/2024/04/10/tHBmWrvpeuwlX37.jpg",
+            "https://s2.loli.net/2024/04/10/UoOsPapdZ9ehL17.webp",
+            "https://s2.loli.net/2024/04/10/wVeUiMBIhNCvy4D.jpg",
+            "https://s2.loli.net/2024/04/10/eJsQd5prnu4LjMA.webp"
+         )  
+</script>
+   
+    <div class="chancheng_banner">
+        <!-- <img src="img/11.png" alt=""> -->
+        <img src="https://s2.loli.net/2024/04/10/qjEQl64VMvuL3fC.png" ></a>
+    </div>
+
+    <div class="chuancheng">
+        
+        <div class="chuancheng_part1">
+            <div class="chuancheng_img1">
+               <img src="https://s2.loli.net/2024/04/10/OnTuvFNsEmxYCB6.png" ></a>
+            </div>
+            <div class="chuancheng_jieshao">
+                <!-- <a href="https://baike.baidu.com/item/%E5%8A%A8%E6%BC%AB"><h2>了解更多</h2></a> -->
+                <div class="wz" style="display: none;">
+                </div>
+                    <div class="wz">
+                        <p>
+                            中国漆之为用，已经有近万年历史。漆器作为中华文明的瑰宝，任凭时光如梭，沉淀岁月留下的痕迹,即便剥去华美的外衣，留下的也是最质朴的本真，以及最包容的智慧。
+                        </p>
+                        <p>
+                            2500 年前，中国的漆器工艺就达到了极高水平，尤其在以湖北为中心的南方楚国，楚式漆器尽显浪漫主义文化特色，被世界公认为“漆器工艺的高峰”。该技艺在湖北保存完整传承至今。
+                        </p>
+                        <p>
+                            什么是“漆”？
+                        </p>
+                        <p>
+                            提起“漆”，大家想到的也许是化学油漆。化学油漆流行及其带来的廉价、污染标签，是对传统漆器的致命误解。“漆”，指的是大漆，又名生漆、国漆，是割开漆树树皮，从韧皮内流出的一种白色黏性乳液，属纯天然产品。大漆无毒无害，可以“吃”。据《本草纲目》记载，干漆是一味重要中药。而化学油漆，只能称之为‘涂料’，与大漆是完全不同的两个事物。
+                        </p>
+                    </div>
+    
+            </div>
+        </div>
+        <div class="chuancheng_part2">
+            <div class="chuancheng_img2">
+                <img src="https://s2.loli.net/2024/04/10/P46D2qC8EgKRH1t.jpg" alt="">
+            </div>
+            <div class="chuancheng_jieshao">
+                <!-- <a href="https://baike.baidu.com/item/%E5%8A%A8%E6%BC%AB"><h2>了解更多</h2></a> -->
+                <div class="wz" style="display: none;">
+                </div>
+                    <div class="wz">
+                        <p style="text-align: center;"><strong><span style="font-size: 16px;">大漆-溯源</span></strong></p>
+                        <p>千年前，中国的漆器工艺就达到了极高水平，以湖北为中心的南方楚国，楚式漆器尽显浪漫主义的文化特色，被世界公认为“漆器工艺的最高峰”。该技艺在湖北保存传承至今。</p>
+                        <p>
+                            天然生漆涂装应用源远流长，古今中外闻名，古老中华民族沿古至今，我国发现和使用天然生漆可追溯到公元前七千多年前，据史籍记载“漆之为用也，始於书竹简，而舜作食器，黑漆之，禹作祭器，黑漆其外，朱画其内。”《庄子·人世间》就有“桂可食，故伐之，漆可用，故割之”的记载。生漆具有防腐蚀、耐强酸、耐强碱、防潮绝缘、耐高温等。天然生漆也有世界公认“涂料之王”的美名。
+                       </p>
+                        <p>
+                            今天说的漆器，大多指的是经过髹饰的手工艺品，源自中国古代的漆器工艺的产物叫做漆器。我们知道“中国”的英文翻译叫做“CHINA”，而“CHINA”一词的英文翻译叫做瓷器，这是因为中国古代瓷器驰名海外。而巧的是“日本”的英文翻译叫做“JAPAN”,"JAPAN"一词的英文翻译叫做漆器，原因也很显然，日本的漆器驰名海外。而读过历史的人都知道，日本的文化源自中国，换言之日本漆器源于中国盛在日本。所以关于漆器的历史，还得从中国史料查证。
+                        </p>
+                        <p>
+                            中国漆器工艺最早诞生于新石器时代。当时的人们在深山中砍割树木，偶然发现树木“伤口”渗出一种乳状液体。把液体涂抹到日用器皿上，可起到防腐、耐用、美观的作用，这便是中国漆器的起源。
+                        </p>
+                        
+                    </div>
+
+            </div>
+           
+        </div>
+        <div class="chuancheng_part3">
+            <div class="chuancheng_img2">
+                <img src="https://s2.loli.net/2024/04/10/HbEwIjFkcYU4Cg6.png" alt="">
+            </div>
+            <div class="chuancheng_jieshao">
+                <!-- <a href="https://baike.baidu.com/item/%E5%8A%A8%E6%BC%AB"><h2>了解更多</h2></a> -->
+                <div class="wz" style="display: none;">
+                </div>
+                    <div class="wz">
+                        <p style="text-align: center;"><strong><span style="font-size: 16px;">大漆-功用</span></strong></p>
+                        <p>
+                          漆器，堪称我国古代化学及工艺美术方面的重要发明。器者，用也。器物的首要目的和功能就是为了使用，而且要好用，才能被广泛接受和应用。在汉代，大漆用于宫殿、庙宇及高宅大院等建筑物，楼船船体表层、车马外部，以及陵墓棺椁明器的涂饰。同时，以大漆制作的食器、酒具、礼器和家具也逐渐增多，其他如果盘、盆盂、箱盒等家居用品也在人们的日常生活中占据越来越重要的位置。漆器开始活跃在汉朝人生活的每个角落。所谓“养生送终之具也”，从日常生活的吃喝、居住、出行到死后的陪葬、棺材、墓室，均与大漆息息相关。
+                         </p>
+                         <p>
+                          楚人生活在一个漆的王国中，生离不开漆，死也离不开漆。其生时使用的日常生活实用器具和娱乐用品是漆品，死后丧葬用品也多用漆品。生活用具如漆杯、漆碗、漆豆、漆盒、漆卮、漆盘、漆勺、漆方壶、漆案、漆俎、漆几、漆杖、漆箱、漆床等;娱乐用具如漆鼓、漆瑟、漆琴、漆竹笛等；工艺品有如漆鹿、漆座屏；丧葬用品有漆镇墓兽、漆木俑、漆棺等。
+                        </p>
+                    </div>
+            </div>
+         </div>
+
+    </div>
+
+    <footer>
+       
+    </footer>
+</body>
+</html>

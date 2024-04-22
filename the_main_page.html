@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>漆器欣赏</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+
+        }
+
+        body {
+            height: 2000px;
+            overflow-x: hidden;
+            background-color: #807e7e;
+
+        }
+
+        .intro {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        header {
+            width: 100%;
+            height: 700px;
+            overflow: hidden;
+            clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
+            transition: clip-path 0.5s ease;
+            position: relative;
+        }
+
+        .img {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            background: url(https://s2.loli.net/2024/04/07/bglcsFzXP32KAx1.jpg);
+            background-size: cover;
+            transform: scale(1);
+            transition: transform 0.5s ease;
+        }
+
+        .main {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 100px;
+        }
+
+        .main h2 {
+            font-size: 50px;
+            margin-bottom: 40px;
+        }
+
+        .main span {
+            padding: 0 100px;
+            font-size: 30px;
+        }
+
+        .exhibts {
+            /* 弹性布局 让页面元素水平+垂直居中 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* 让页面始终占浏览器总高 */
+            height: 50vh;
+        }
+
+        ul {
+            width: 1190px;
+            /* 去除无序列表默认的小圆点 */
+            list-style: none;
+            /* 弹性布局 让元素均匀排列 */
+            display: flex;
+            justify-content: space-around;
+        }
+
+        ul li {
+            /* 相对定位 */
+            position: relative;
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+            margin: 0 10px;
+        }
+
+        ul li:hover {
+            cursor: pointer;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .mask {
+            /* 绝对定位 */
+            position: absolute;
+            top: 100%;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            background: #464646e8;
+            color: #fff;
+
+            /* 添加过渡 */
+            transition: all .7s ease-out;
+        }
+
+        ul li:hover .mask {
+            top: 0;
+        }
+
+        .mask a {
+            line-height: 50px;
+            color: #fff;
+        }
+
+        .mask p {
+            padding: 20px;
+            font-weight: 500;
+            word-break: break-all;
+        }
+
+        .exhibts_title {
+            font-size: 5rem;
+            color: #fff;
+        }
+
+        .btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 30vh;
+            background-image: linear-gradient(to top, #b1b1b3 0%, #eef1f5 100%);
+
+        }
+
+        /* 按钮样式 */
+        .button {
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            text-decoration: none;
+            font-family: sans-serif;
+            font-weight: 600;
+            font-size: 2em;
+            padding: 0.75em 1em;
+            color: rgb(7, 7, 7);
+            border: 0.15em solid rgb(10, 10, 10);
+            border-radius: 2em;
+            transition: 4s;
+        }
+
+        .button:before,
+        .button:after {
+            content: "";
+            position: absolute;
+            top: -1.5em;
+            z-index: -1;
+            width: 200%;
+            aspect-ratio: 1;
+            border: none;
+            border-radius: 40%;
+            background-color: rgba(2, 2, 48, 0.25);
+            transition: 4s;
+        }
+
+        .button:before {
+            left: -80%;
+            transform: translate3d(0, 5em, 0) rotate(-340deg);
+        }
+
+        .button:after {
+            right: -80%;
+            transform: translate3d(0, 5em, 0) rotate(390deg);
+        }
+
+        .button:hover,
+        .button:focus {
+            color: white;
+        }
+
+        .button:hover:before,
+        .button:hover:after,
+        .button:focus:before,
+        .button:focus:after {
+            transform: none;
+            background-color: rgba(12, 12, 15, 0.75);
+        }
+
+        @import url('https://fonts.googleapis.com/css?family=Lato:700,900');
+
+        @font-face {
+            font-family: Arno Pro;
+            src: url(https://s2.loli.net/2024/04/07/vkz2cIEm6T4jAba.jpg);
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: Arno Pro;
+            src: url(https://s2.loli.net/2024/04/07/yKO5aLSpstXvo7M.jpg);
+            font-style: italic;
+        }
+
+        p {
+            font-family: Arno Pro, serif;
+            font-size: 1.4rem;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        p.credits {
+            font-style: italic;
+            text-indent: 0 !important;
+            margin: 1rem 0;
+        }
+
+        p a {
+            font-weight: bolder;
+            color: #000;
+            text-decoration: none;
+        }
+
+        @supports (font-variant-caps: small-caps) {
+            .multicol:first-of-type p:first-of-type {
+                font-variant-caps: small-caps;
+            }
+        }
+
+        p:not(:first-of-type) {
+            text-indent: 1.4rem;
+        }
+
+        .multicol {
+            column-count: 4;
+            column-gap: 2rem;
+        }
+
+        .multicol+img {
+            margin: 2rem 0;
+        }
+
+        article {
+            width: 80%;
+            margin: 0 auto 4rem;
+            color: white;
+        }
+
+        article img {
+            width: 100%;
+        }
+
+        article header {
+            margin-bottom: 2.5rem;
+            padding-bottom: 4rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+        }
+
+        article h1 {
+            margin-top: 0;
+            font-size: 3rem;
+        }
+
+        article h2 {
+            break-after: column;
+            font-size: 1.5rem;
+        }
+
+        h1,
+        h2 {
+            font-family: Lato, sans-serif;
+        }
+
+        @media all and (max-width: 1600px) {
+            .multicol {
+                column-count: 3;
+            }
+        }
+
+        @media all and (max-width: 1000px) {
+            .multicol {
+                column-count: 2;
+            }
+        }
+
+        @media all and (max-width:800px) {
+            article h2 {
+                break-after: avoid;
+            }
+
+            .multicol {
+                column-count: 1;
+            }
+        }
+
+        @media all and (max-width:600px) {
+            body {
+                margin: 0;
+            }
+
+            article {
+                width: 100%;
+            }
+
+            .multicol {
+                padding: 0 1rem;
+            }
+
+            article header {
+                margin-bottom: 2.5rem;
+                padding-bottom: 0;
+                border-bottom: none;
+            }
+
+            h1 {
+                margin-bottom: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="intro">
+        <header>
+            <div class="img"></div>
+        </header>
+        <div class="main">
+            <main>
+                <article>
+                    <div class="multicol">
+                        <h1>楚漆</h1>
+                        <h2>究竟是什么？</h2>
+                        <p>
+                            &nbsp虽然漆器不是荆州独有，楚式漆器从字面上来看也没有代表着全部的中国漆器。荆州作为春秋战国时楚国的都城所在地，
+                            楚式漆器可以说代表着当时中国漆器技艺的最高水平。同时在今天大量出土的精美楚式漆器，又证明了一个事实，楚式
+                            漆器是中国漆器最重要的一个分支。
+                        </p>
+                        <p>
+                            而楚式漆器髹饰技艺是一种民间漆器髹饰传统技艺。至春秋战国时期，楚国的漆器制作工艺已达到了极高水平。许多文
+                            物考古专家都以为制作技艺已经失传，事实上，2000多年来，这一独具东方文化特色的荆楚传统技艺，一直在荆沙地区
+                            不断传承，近40年来，荆州地区楚墓中漆器陆续出土，已超过五千余件。
+                        </p>
+                    </div>
+                    <img src="https://s2.loli.net/2024/04/07/yKO5aLSpstXvo7M.jpg" alt="">
+                    <div class="multicol">
+                        <h1>What</h1>
+                        <h2>is lacquer?And why is it so unique?</h2>
+                        <p>Although lacquer is not unique to Jingzhou, Chu-style lacquer does not represent all Chinese
+                            lacquer
+                            literally. As the capital of Chu in the Spring and Autumn Period and the Warring States
+                            Period, Chu-style
+                            lacquer can be said to represent the highest level of Chinese lacquer technology at that
+                            time. At the same
+                            time, a large number of exquisite Chu-style lacquer unearthed today also proves the fact
+                            that Chu-style
+                            lacquer is the most important branch of Chinese lacquer. And Chu-style lacquer decoration
+                            technology is a
+                            traditional folk lacquer decoration technology. By the Spring and Autumn Period and the
+                            Warring States
+                            Period, the lacquer manufacturing technology of Chu has reached a very high level. Many
+                            cultural archaeology
+                            experts think that the manufacturing technology has been lost. In fact, for more than 2000
+                            years, this unique
+                            traditional technology of Jingchu culture has been inherited in Jingsha area. In the past 40
+                            years, more than
+                            5,000 pieces of lacquer have been unearthed from the tombs of Chu in Jingzhou area.</p>
+                    </div>
+                    <img src="https://s2.loli.net/2024/04/07/vkz2cIEm6T4jAba.jpg" alt="">
+                </article>
+            </main>
+            <h1 class="exhibts_title">漆器欣赏</h1>
+        </div>
+    </div>
+    <div class="exhibts">
+        <ul>
+            <li>
+                <img src="https://s2.loli.net/2024/04/08/icLgCRHM6s2yzAd.jpg" alt="">
+                <div class="mask">
+                    <h1><a href="the_first_page.html">虎座凤架悬鼓</a></h1>
+                    <p>于湖北九连墩战国楚墓２号墓出土，是楚国乐器典型的代表器物</p>
+                </div>
+            </li>
+            <li>
+                <img src="https://s2.loli.net/2024/04/08/ZTYU1uaxN4m2zDe.jpg" alt="">
+                <div class="mask">
+                    <h1><a href="the_second_page.html">彩绘鸳鸯形漆盒</a></h1>
+                    <p>1978年在湖北随州市曾侯乙墓出土，收藏于湖北省博物馆</p>
+                </div>
+            </li>
+            <li>
+                <img src="https://s2.loli.net/2024/04/08/9G3IhESK7TVszYn.jpg" alt="">
+                <div class="mask">
+                    <h1><a href="the_third_page.html">彩漆木雕龙凤纹盖豆</a></h1>
+                    <p>战国 漆木器 1978年随州曾侯乙墓出土</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="exhibts">
+        <ul>
+            <li>
+                <img src="https://s2.loli.net/2024/04/09/5Ef4FRoIkPzWjyq.jpg" alt="">
+                <div class="mask">
+                    <h1><a href="the_forth_page.html">彩绘云凤纹漆匕 </a></h1>
+                    <p>1977年云梦睡虎地33号墓出土</p>
+                </div>
+            </li>
+            <li>
+                <img src="https://s2.loli.net/2024/04/09/tVyISZ9bmAOUFlz.jpg" alt="">
+                <div class="mask">
+                    <h1><a href="the_fifth_page.html">彩绘云凤纹漆圆盒</a></h1>
+                    <p>1975年江陵凤凰山167号墓出土</p>
+                </div>
+            </li>
+            <li>
+                <img src="https://s2.loli.net/2024/04/09/9EJ5QqKmZ8GjCUa.png" alt="">
+                <div class="mask">
+                    <h1><a href="the_sixth_page.html">彩绘凤鱼纹漆盂</a></h1>
+                    <p>1975云梦睡虎地11号墓出土</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="btn">
+        <a href="the_more_page.html" class="button">更多精美图片</a>
+    </div>
+
+    <script>
+        const header = document.querySelector('header');
+        const img = document.querySelector('.img');
+        let scrollDistance = 0;
+        let requestId = null;
+        function updateHeaderClipPath() {
+            const clipPathValue = `polygon(0 0, 100% 0%, 100% ${(scrollDistance <= 600) ? 100 - ((scrollDistance / 600) * 60) : 75}%, 0 100%)`;
+            header.style.clipPath = clipPathValue;
+            const scaleValue = 1 + ((scrollDistance / 600) * 1);
+            img.style.transform = `scale(${scaleValue})`;
+            const opacityValue = (scrollDistance / 600);
+        }
+        function scrollHandler(event) {
+            if (event.deltaY < 0) {
+                scrollDistance = Math.max(0, scrollDistance + event.deltaY);
+            } else {
+                scrollDistance = Math.min(600, scrollDistance + event.deltaY);
+            }
+            if (!requestId) {
+                requestId = window.requestAnimationFrame(() => {
+                    updateHeaderClipPath();
+                    requestId = null;
+                });
+            }
+        }
+        window.addEventListener('wheel', scrollHandler);
+    </script>
+</body>
+
+</html>

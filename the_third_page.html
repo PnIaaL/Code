@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html class="root-scroll" lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style>
+            body{
+                background-color: rgb(71, 71, 70);
+            }
+            h1{
+                font-size: 4rem;
+            }
+            .topic{
+                font-size: 2rem;
+                color:#630505;
+            }
+            .info{
+                font-size: 1.5rem;
+                width: 80%;
+                margin: 0 auto;
+                text-align: center;
+            }
+            .content{
+                background-color:#f0e9c3;
+                width: 80%;
+                height: 100%;
+                margin: 0 auto;
+                text-align: center;
+            }
+            .banner {
+                width: 600px;
+                height: 500px;
+                margin: 100px auto;
+                text-align: center;
+            }
+     
+            button {
+                border: 1px solid transparent;
+                margin: 0 10px;
+            }
+     
+            button:hover {
+                cursor: pointer;
+                background-color: #f40;
+                color: #fff;
+                border-color: #ccc;
+     
+            }
+     
+            .banner img {
+                width: 100%;
+                height: 100%;
+                /* object-fit: cover; */
+                max-width: 100%;
+                min-height: 100%;
+                border: 1px solid;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="content">
+            <p>&nbsp</p>
+            <div>
+                <div class="banner">
+                <img id="img" src="./image/3.1.jpeg" alt="">
+                <p>
+                    <button id="btnPrev"><</button>
+                    <button id="btnNext">></button>
+                </p>
+            </div>
+            <div class="">
+                <h1>彩漆木雕龙凤纹盖豆</h1>
+                <p>
+                    <p class="topic">出土时间</p><p class="info">1978年</p>
+                    <p class="topic">馆藏地点</p><p class="info">湖北省博物馆</p>
+                    <p class="topic">出土地</p><p class="info">湖北省随州市擂鼓墩1号墓</p>
+                    <p class="topic">详细介绍</p><p class="info">此展品为东周（战国早期）文物。
+                        长20.8厘米，宽18厘米，通高24.3厘米。此器仿自青铜盖豆，双耳上有凸起的龙形
+                        浮雕。全器以黑漆为底，施以艳丽的红彩，勾勒出所雕各部位的形态，器身满饰网纹、
+                        菱角纹、变形凤纹等，雕龙画凤，色彩斑斓，形象生动，姿态传神。1978年出土于湖
+                        北省随州市擂鼓墩1号墓。现收藏于湖北省博物馆。</p>
+                </p>
+            </div>
+        </div>
+        <p>&nbsp</p>
+        </div>
+        <script>
+            // 1.定义一个数组用来存放图片的地址
+            var arr = ["./image/3.1.jpeg", "./image/3.2.jpg","./image/3.3.jpg"];
+            // 2.获取一下元素对象
+            var btns = document.querySelectorAll('button');
+            var img = document.querySelectorAll('img')[0];
+        
+            // 定义一个全局变量
+            var num = 0;
+            // 3.绑定事件、
+            //下一张
+            btns[1].onclick = function(){
+                console.log(btns[1]);
+                num++;
+                // 这个地方需要注意，当我们图片对应的下标加到最大时候，我们需要将下标设置回第一张
+                if(num  > 2){
+                    num = 0;
+                }
+                //img对象调用它的src属性，实现改变图片的路径
+                img.src = arr[num];
+                console.log(img.src);
+            }
+            // 上一张
+            btns[0].onclick = function(){
+                console.log(btns[0]);
+                num--;
+                if(num  < 0){
+                    num = 2;
+                }
+                img.src = arr[num];
+                console.log(img.src);
+     
+            }
+        </script>
+    </body>
+</html>
